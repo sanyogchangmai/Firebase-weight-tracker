@@ -14,23 +14,22 @@ const Edit = () => {
         const db = firebase.firestore();
         db.collection("weights").doc(id).get()
         .then(function(snapshot){
-            console.log(snapshot.data());
             setData(snapshot.data());
             setWeight(snapshot.data().weight);
         })
-      })
+      },[id])
 
       function handleUpdate(e){
           e.preventDefault();
-          console.log("weight " + weight);
 
           const db = firebase.firestore();
           db.collection("weights").doc(id).update({
-              weight: weight,
-          });
-          alert("Updated successfully");
-          history.push("/");
-
+              weight: weight
+          })
+          .then(function(){
+            alert("Updated successfully");
+            history.push("/");
+          })
       }
 
     return (

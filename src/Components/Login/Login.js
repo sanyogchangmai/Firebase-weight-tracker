@@ -13,8 +13,7 @@ const Login = () => {
     const history = useHistory();
 
     async function handleLogin(e) {
-        e.preventDefault()
-        console.log("Indide handle login");
+        e.preventDefault();
     
         try {
           setError("")
@@ -26,7 +25,7 @@ const Login = () => {
           setError("Failed to log in");
         }
     
-        setLoading(false)
+        setLoading(false);
       }
 
 
@@ -42,7 +41,7 @@ const Login = () => {
             </div>
             }
             { loading && <div className="spinner-border text-primary" role="status">
-                      <span class="visually-hidden">Loading...</span>
+                      <span className="visually-hidden">Loading...</span>
                     </div>}
 
             <form onSubmit={ handleLogin }>

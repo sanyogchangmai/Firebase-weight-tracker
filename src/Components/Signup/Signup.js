@@ -7,13 +7,13 @@ import { useHistory } from "react-router-dom";
 
 const Signup = () => {
 
-  const { signup,currentUser } = useAuth();
+  const { signup } = useAuth();
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
-  const history = useHistory()
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -49,7 +49,7 @@ const Signup = () => {
 
          { loading && 
          <div className="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+            <span classname="visually-hidden">Loading...</span>
           </div>}
                     
           <form onSubmit={ handleSubmit }>

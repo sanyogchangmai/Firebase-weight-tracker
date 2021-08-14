@@ -12,16 +12,17 @@ const Form = () => {
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log(presentWeight);
 
         const db = firebase.firestore();
         db.collection("weights").add({
             user_uid: currentUser.uid,
             weight: presentWeight,
             time: firebase.firestore.Timestamp.fromDate(new Date())
-        });
-        alert("Data saved successfully")
+        })
+        .then(function(){
+            alert("Data saved successfully");
         history.push("/");
+        })   
     }
 
 

@@ -6,8 +6,6 @@ import { useAuth } from "../../Context/Context";
 
 const Home = () => {
 
-    console.log(process.env.REACT_APP_FIREBASE_API_KEY);
-
     const [data,setData] = useState("");
     const [loading,setLoading] = useState(false);
     const { currentUser } = useAuth();
@@ -15,7 +13,7 @@ const Home = () => {
     useEffect(() => {
         setLoading(true);
         const db = firebase.firestore();
-        db.collection("weights").where("user_uid","==",currentUser.uid).get()
+        db.collection("weights").orderBy("time").where("user_uid","==",currentUser.uid).get()
         .then(function(snapshot){
             setData(snapshot);
             setLoading(false);
@@ -23,9 +21,12 @@ const Home = () => {
       },[])
 
     function handleDelete(id){
+        console.log(id);
         const db = firebase.firestore();
-        db.collection("weights").doc(id).delete();
-        window.location.reload();
+        db.collection("weights").doc(id).delete()
+        .then(function(){
+            window.location.reload(); 
+        })
     }
 
     return (
@@ -66,7 +67,7 @@ const Home = () => {
                         <i className="fas fa-ellipsis-v" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><Link className="dropdown-item" to={`/edit/${ result.id }`}>Edit</Link></li>
-                            <li className="dropdown-item" onClick={ () => handleDelete(result.id) }>Delete</li>
+                            <li className="dropdown-item delete-btn" onClick={ () => handleDelete(result.id) }>Delete</li>
                         </ul>
                     </div>
 
