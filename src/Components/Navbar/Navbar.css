@@ -1,0 +1,12 @@
+.navbar-nav {
+  margin-left: auto;
+}
+.navbar-toggler {
+  border-style: none;
+}
+.logout-btn {
+  width: 6rem;
+}
+.navbar-brand {
+  font-weight: bold;
+}

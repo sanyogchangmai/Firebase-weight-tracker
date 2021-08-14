@@ -1,0 +1,18 @@
+.weight,
+.date {
+  width: 24rem;
+}
+.btn-submit {
+  width: 24rem;
+}
+.form {
+  margin-top: 10rem;
+}
+
+@media only screen and (max-width: 420px) {
+  .weight,
+  .date,
+  .btn-submit {
+    max-width: 90%;
+  }
+}

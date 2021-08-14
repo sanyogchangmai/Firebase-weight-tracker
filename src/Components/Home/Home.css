@@ -1,0 +1,19 @@
+.home {
+  justify-self: center;
+  display: block;
+}
+.card {
+  width: 18rem;
+  margin: 2rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.fa-ellipsis-v {
+  margin-left: 100%;
+}
+.card-title {
+  font-size: 3.5rem;
+}
+.unit {
+  margin-left: 5px;
+  font-size: 2rem;
+}
