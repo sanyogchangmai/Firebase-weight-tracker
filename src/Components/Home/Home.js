@@ -13,7 +13,7 @@ const Home = () => {
     useEffect(() => {
         setLoading(true);
         const db = firebase.firestore();
-        db.collection("weights").orderBy("time").where("user_uid","==",currentUser.uid).get()
+        db.collection("weights").orderBy("time","desc").where("user_uid","==",currentUser.uid).get()
         .then(function(snapshot){
             setData(snapshot);
             setLoading(false);
