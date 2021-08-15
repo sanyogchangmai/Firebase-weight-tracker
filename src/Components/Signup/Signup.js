@@ -49,7 +49,7 @@ const Signup = () => {
 
          { loading && 
          <div className="spinner-border text-primary" role="status">
-            <span classname="visually-hidden">Loading...</span>
+            <span classname="visually-hidden"></span>
           </div>}
                     
           <form onSubmit={ handleSubmit }>
